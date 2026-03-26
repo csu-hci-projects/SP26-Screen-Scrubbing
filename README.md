@@ -5,4 +5,4 @@ The purpose of this repository is to hold data and code for a VR video editing a
 ### Team Members
 Davis Garrett\
 Connor Schwab\
-Riley Bowling\
+Riley Bowling
