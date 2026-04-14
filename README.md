@@ -11,7 +11,9 @@ Riley Bowling
 
 
 ## Links to Checkpoint 1 Videos
+Current State of Project - https://youtu.be/4tA_kWONb9U
 
+Code Walkthrough - https://youtu.be/YUmo7FESMLw
 
 
 
