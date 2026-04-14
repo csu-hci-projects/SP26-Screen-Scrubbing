@@ -10,36 +10,36 @@ Riley Bowling
 
 
 
-\## Links to Checkpoint 1 Videos
+## Links to Checkpoint 1 Videos
 
 
 
 
 
-\## Project Paper
+## Project Paper
 
 See the `/Documents` folder for our LaTeX paper file and for a PDF version of the paper.
 The LaTeX file is named sample-sigconf.tex
 
 
 
-\## How To Run
+## How To Run
 
-\- Unity 6 
+- Unity 6 
 
-\- XR Interaction Toolkit installed
+- XR Interaction Toolkit installed
 
-\- Press F1 for Traditional mode (uses mouse/keyboard)
+- Press F1 for Traditional mode (uses mouse/keyboard)
 
-\- Press F2 for VR mode (Quest headset required)
+- Press F2 for VR mode (Quest headset required)
 
 
 
-\## Controls
+## Controls
 
-\- \*\*Mouse\*\* — hover and click clips to select, drag to reposition
+- **Mouse** — hover and click clips to select, drag to reposition
 
-\- \*\*F1\*\* — switch to traditional mode
+- **F1** — switch to traditional mode
 
-\- \*\*F2\*\* — switch to VR mode
+- **F2** — switch to VR mode
 
