@@ -18,6 +18,10 @@ public class ModeManager : MonoBehaviour {
     }
 
     void Update() {
+        if (switchToTraditionalAction != null && switchToTraditionalAction.action.WasPressedThisFrame()) 
+        {
+            SetMode(InputMode.Traditional);
+        }
         if (Input.GetKeyDown(KeyCode.F1)) SetMode(InputMode.Traditional);
         if (Input.GetKeyDown(KeyCode.F2)) SetMode(InputMode.VR);
     }

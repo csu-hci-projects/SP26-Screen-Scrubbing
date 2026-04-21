@@ -104,3 +104,6 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+ScreenScrubbing_BackUpThisFolder_ButDontShipItWithYourGame/
+ScreenScrubbers_BurstDebugInformation_DoNotShip/
+.DS_Store
