@@ -25,7 +25,7 @@ public class TimelineClip : MonoBehaviour
         xrInteractable.trackPosition = false;
         xrInteractable.trackRotation = false;
         xrInteractable.selectEntered.AddListener(OnVRSelected);
-        xrInteractable.selectExited.AddListener(OnVRSelectExit);
+        xrInteractable.selectExited.AddListener(OnVRSelectExit); 
         xrInteractable.hoverEntered.AddListener(OnVRHovered);
         xrInteractable.hoverExited.AddListener(OnVRHoverExit);
     }
