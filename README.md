@@ -15,8 +15,10 @@ Current State of Project - https://youtu.be/4tA_kWONb9U
 
 Code Walkthrough - https://youtu.be/YUmo7FESMLw
 
+## Links to Checkpoint 2 Videos
+Code Walkthrough - https://youtu.be/29ygqZ-pGrE
 
-
+Current State - https://youtu.be/663-TvwLvdQ
 
 ## Project Paper
 
