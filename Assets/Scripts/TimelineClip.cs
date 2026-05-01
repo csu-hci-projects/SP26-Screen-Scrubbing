@@ -4,10 +4,6 @@ using UnityEngine.EventSystems;
 
 public class TimelineClip : MonoBehaviour
 {
-    // IPointerDownHandler,    // mouse click
-    // IPointerEnterHandler,    // mouse hover
-    // IPointerExitHandler {    // mouse exit
-
     public float startTime;
     public float endTime;
 

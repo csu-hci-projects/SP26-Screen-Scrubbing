@@ -19,10 +19,6 @@ public class TimelineManager : MonoBehaviour {
     }
 
     public void PlaceClip(TimelineClip clip, float worldX) {
-        // to keep on timeline
-        float lockedY = transform.position.y;
-        // float lockedZ = transform.position.z;
-
         float snappedTime = SnapTime(WorldXToTime(worldX));
         float snappedX = Mathf.Lerp(
             timelineStartX, 
@@ -33,11 +29,7 @@ public class TimelineManager : MonoBehaviour {
             snappedX, 
             clip.transform.position.y,
             clip.transform.position.z); 
-        // clip.transform.position = new Vector3(
-        //     transform.position.x,
-        //     lockedY,
-        //     lockedZ
-        // );
+            
         clip.startTime = snappedTime;
     }
 }
