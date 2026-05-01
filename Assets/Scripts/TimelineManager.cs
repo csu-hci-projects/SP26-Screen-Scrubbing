@@ -20,7 +20,7 @@ public class TimelineManager : MonoBehaviour {
 
     public void PlaceClip(TimelineClip clip, float worldX) {
         // to keep on timeline
-        // float lockedY = transform.position.y;
+        float lockedY = transform.position.y;
         // float lockedZ = transform.position.z;
 
         float snappedTime = SnapTime(WorldXToTime(worldX));
@@ -31,8 +31,8 @@ public class TimelineManager : MonoBehaviour {
         
         clip.transform.position = new Vector3(
             snappedX, 
-            transform.position.y, 
-            transform.position.z); 
+            clip.transform.position.y,
+            clip.transform.position.z); 
         // clip.transform.position = new Vector3(
         //     transform.position.x,
         //     lockedY,
