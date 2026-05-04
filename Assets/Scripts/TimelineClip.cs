@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Hands;
 using UnityEngine.EventSystems;
 
 public class TimelineClip : MonoBehaviour
