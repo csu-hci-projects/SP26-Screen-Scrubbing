@@ -17,7 +17,7 @@ public class ResizeHandle : MonoBehaviour {
     void Awake() {
         grabInteractable = GetComponent<XRGrabInteractable>();
         clipTransform = transform.parent;
-        //grabInteractable.trackPosition = false;
+        grabInteractable.trackPosition = false;
         grabInteractable.trackRotation = false;
         grabInteractable.selectEntered.AddListener(args => {
             currentInteractor = args.interactorObject;
@@ -48,8 +48,8 @@ public class ResizeHandle : MonoBehaviour {
         }
 
         transform.localPosition = new Vector3(
-            side == HandleSide.Right ? 0.5f : -0.5f,
-            transform.localPosition.y,
-            transform.localPosition.z);
+            interactorX,
+            clipTransform.position.y,
+            clipTransform.position.z - .2f);
     }
 }
