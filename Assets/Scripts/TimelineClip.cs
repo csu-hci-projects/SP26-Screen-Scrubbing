@@ -53,6 +53,8 @@ public class TimelineClip : MonoBehaviour
 
     void LateUpdate() {
         if (currentInteractor == null) return;
+        foreach (var handle in GetComponentsInChildren<ResizeHandle>())
+            if (handle.IsBeingResized) return;
         Vector3 attachPos = currentInteractor.GetAttachTransform(xrInteractable).position;
         timelineManager.PlaceClip(this, attachPos.x);
     }
