@@ -29,7 +29,7 @@ public class ExperimentLogger : MonoBehaviour
 
     private string runCsvPath;
     
-    private const string CsvHeader = "Modality,Round,CompletionTimeSec,TimestampUtc";
+    private const string CsvHeader = "Modality,Round,CompletionTimeSec";
 
     private readonly string[] roundNames = { "Round1", "Round2", "Round3" };
 
@@ -56,13 +56,11 @@ public class ExperimentLogger : MonoBehaviour
         
         float completionTime = Time.time - roundStartTime;
         string roundName = roundNames[currentRoundIndex];
-        string timestamp = System.DateTime.UtcNow.ToString("o");
 
         StringBuilder row = new StringBuilder();
         row.Append(currentModality).Append(",");
         row.Append(roundName).Append(",");
-        row.Append(completionTime.ToString("F3")).Append(",");
-        row.Append(timestamp);
+        row.Append(completionTime.ToString("F3"));
 
         File.AppendAllText(runCsvPath, row + "\n");
     }
