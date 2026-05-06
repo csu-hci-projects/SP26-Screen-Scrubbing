@@ -1,0 +1,2 @@
+C:\Users\Connor\Documents\GitHub\SP26-Screen-Scrubbing\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\Connor\Documents\GitHub\SP26-Screen-Scrubbing\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
