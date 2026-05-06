@@ -32,3 +32,10 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Android and Quest build artifacts
+.cxx/
+.gradle/
+*.apk
+*.aab
+*.keystore
