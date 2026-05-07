@@ -63,7 +63,7 @@ public class ExperimentFlowController : MonoBehaviour
         logger.BeginNewRun();
         sessionActive = true;
         sessionCompleted = false;
-        activeModalityPhase = InteractionModality.Controllers;
+        activeModalityPhase = InteractionModality.HandTracking;
         StartRound(0);
     }
 
@@ -91,7 +91,7 @@ public class ExperimentFlowController : MonoBehaviour
         {
             StartRound(activeRound + 1);
         }
-else if (runBothModalitiesSequentially && activeModalityPhase == InteractionModality.HandTracking)
+        else if (runBothModalitiesSequentially && activeModalityPhase == InteractionModality.HandTracking)
         {
             activeModalityPhase = InteractionModality.Controllers;
             StartRound(0);
