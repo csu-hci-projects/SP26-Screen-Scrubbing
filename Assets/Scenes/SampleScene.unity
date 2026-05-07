@@ -940,6 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190155578}
   - component: {fileID: 1190155576}
+  - component: {fileID: 1190155579}
   m_Layer: 0
   m_Name: ExperimentManager
   m_TagString: Untagged
@@ -960,9 +961,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   currentModality: 0
-  targetStart: 0
-  targetEnd: 0
-  targetInsertPoint: 0
+  clipATimelineManager: {fileID: 826546343}
+  clipBTimelineManager: {fileID: 204413794}
+  clipA: {fileID: 2138679070}
+  clipB: {fileID: 2136798215}
+  currentRoundIndex: -1
+  roundActive: 0
+  roundStartTime: 0
 --- !u!4 &1190155578
 Transform:
   m_ObjectHideFlags: 0
@@ -978,6 +983,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190155579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190155575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7bc24c30e83d84591226f72b9d96c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExperimentFlowController
+  logger: {fileID: 1190155576}
+  clipA: {fileID: 2138679070}
+  clipB: {fileID: 2136798215}
+  resetClipsAtRoundStart: 1
+  autoAdvanceToNextRound: 1
+  autoStartSessionOnPlay: 1
+  runBothModalitiesSequentially: 1
+  positionToleranceNorm: 0.05
+  scaleTolerance: 0.1
+  holdOnTargetSeconds: 0.75
+  showWorldStatusText: 1
+  worldTextOffset: {x: 0, y: 0.6, z: 1.5}
+  worldTextFontSize: 260
+  worldTextCharacterSize: 0.06
+  worldTextScale: 0.03
+  activeRound: -1
+  sessionActive: 0
+  sessionCompleted: 0
+  activeModalityPhase: 5
 --- !u!1 &1273848787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   startTime: 0
   endTime: 0
+  timelineManager: {fileID: 204413794}
 --- !u!65 &2136798217
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2742,6 +2779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   startTime: 0
   endTime: 0
+  timelineManager: {fileID: 826546343}
 --- !u!65 &2138679071
 BoxCollider:
   m_ObjectHideFlags: 0

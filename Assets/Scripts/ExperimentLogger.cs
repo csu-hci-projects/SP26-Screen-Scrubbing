@@ -1,48 +1,108 @@
-using UnityEngine;
 using System.IO;
+using System.Text;
+using UnityEngine;
 
-public enum InteractionModality {
+public enum InteractionModality
+{
     Traditional,
     VR_Unimodal_Visual,
     VR_Unimodal_Audio,
-    VR_Multimodal
+    VR_Multimodal,
+    HandTracking,
+    Controllers
 }
 
-public class ExperimentLogger : MonoBehaviour {
+public class ExperimentLogger : MonoBehaviour
+{
+    [Header("Session Setup")]
     public InteractionModality currentModality;
-    public float targetStart;
-    public float targetEnd;
-    public float targetInsertPoint;
+    
+    public TimelineManager clipATimelineManager;
+    public TimelineManager clipBTimelineManager;
+    public TimelineClip clipA;
+    public TimelineClip clipB;
 
-    private float taskStartTime;
-    private string logPath;
+    [Header("Runtime State (Read-Only)")]
+    [SerializeField] private int currentRoundIndex = -1;
+    [SerializeField] private bool roundActive;
+    [SerializeField] private float roundStartTime;
 
-    void Start() {
-        logPath = Application.persistentDataPath + "/results.csv";
-        if (!File.Exists(logPath)) {
-            File.WriteAllText(logPath, "Modality,CompletionTime,StartError,EndError,InsertError\n");
+    private string runCsvPath;
+    
+    private const string CsvHeader = "Modality,Round,CompletionTimeSec";
+
+    private readonly string[] roundNames = { "Round1", "Round2", "Round3" };
+
+    private void Start()
+    {
+        ResolveTimelineManagers();
+        StartNewRunCsv();
+    }
+
+    public void StartRound(int roundIndex)
+    {
+        if (roundIndex < 0 || roundIndex >= roundNames.Length) return;
+
+        currentRoundIndex = roundIndex;
+        roundStartTime = Time.time;
+        roundActive = true;
+    }
+
+    public void CompleteCurrentRound()
+    {
+        if (!roundActive || currentRoundIndex < 0) return;
+
+        roundActive = false;
+        
+        float completionTime = Time.time - roundStartTime;
+        string roundName = roundNames[currentRoundIndex];
+
+        StringBuilder row = new StringBuilder();
+        row.Append(currentModality).Append(",");
+        row.Append(roundName).Append(",");
+        row.Append(completionTime.ToString("F3"));
+
+        File.AppendAllText(runCsvPath, row + "\n");
+    }
+
+    public void BeginNewRun()
+    {
+        StartNewRunCsv();
+        currentRoundIndex = -1;
+        roundActive = false;
+    }
+
+    public string GetCurrentRunCsvPath()
+    {
+        return runCsvPath;
+    }
+
+    public void OnClipSelected(TimelineClip clip) 
+    { 
+    }
+
+    private void StartNewRunCsv()
+    {
+        string timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        string fileName = "results_ScreenScrubbers_" + timestamp + ".csv";
+        runCsvPath = Path.Combine(Application.persistentDataPath, fileName);
+        
+        if (!File.Exists(runCsvPath))
+        {
+            File.WriteAllText(runCsvPath, CsvHeader + "\n");
         }
     }
 
-    public void StartTask(float tStart, float tEnd, float tInsert) {
-        targetStart = tStart;
-        targetEnd = tEnd;
-        targetInsertPoint = tInsert;
-        taskStartTime = Time.time;
-    }
-
-    public void OnClipSelected(TimelineClip clip) {
-        // Log intermediate events if needed
-    }
-
-    public void EndTask(float userStart, float userEnd, float userInsert) {
-        float completionTime = Time.time - taskStartTime;
-        float startError  = Mathf.Abs(userStart  - targetStart);
-        float endError    = Mathf.Abs(userEnd    - targetEnd);
-        float insertError = Mathf.Abs(userInsert - targetInsertPoint);
-
-        string row = $"{currentModality},{completionTime:F3}," + $"{startError:F3},{endError:F3},{insertError:F3}";
-        File.AppendAllText(logPath, row + "\n");
-        Debug.Log("Logged: " + row);
+    private void ResolveTimelineManagers()
+    {
+        if (clipATimelineManager == null || clipBTimelineManager == null)
+        {
+            TimelineManager[] managers = FindObjectsOfType<TimelineManager>();
+            if (managers.Length == 1)
+            {
+                if (clipATimelineManager == null) clipATimelineManager = managers[0];
+                if (clipBTimelineManager == null) clipBTimelineManager = managers[0];
+            }
+        }
     }
 }

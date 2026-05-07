@@ -7,14 +7,19 @@ public class TimelineClip : MonoBehaviour
 {
     public float startTime;
     public float endTime;
+    public TimelineManager timelineManager;
 
     private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable xrInteractable;
     private Renderer rend;
     private Color originalColor;
     private UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor currentInteractor;
-    private TimelineManager timelineManager;
     void Awake() {
-        timelineManager = FindObjectOfType<TimelineManager>();
+        if (timelineManager == null) {
+            timelineManager = GetComponentInParent<TimelineManager>();
+        }
+        if (timelineManager == null) {
+            timelineManager = FindObjectOfType<TimelineManager>();
+        }
         rend = GetComponent<Renderer>();
         GetComponent<Rigidbody>().isKinematic = true;
         originalColor = rend.material.color;
@@ -53,6 +58,7 @@ public class TimelineClip : MonoBehaviour
 
     void LateUpdate() {
         if (currentInteractor == null) return;
+        if (timelineManager == null) return;
         foreach (var handle in GetComponentsInChildren<ResizeHandle>())
             if (handle.IsBeingResized) return;
         Vector3 attachPos = currentInteractor.GetAttachTransform(xrInteractable).position;
