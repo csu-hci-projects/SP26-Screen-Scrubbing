@@ -91,9 +91,9 @@ public class ExperimentFlowController : MonoBehaviour
         {
             StartRound(activeRound + 1);
         }
-        else if (runBothModalitiesSequentially && activeModalityPhase == InteractionModality.Controllers)
+else if (runBothModalitiesSequentially && activeModalityPhase == InteractionModality.HandTracking)
         {
-            activeModalityPhase = InteractionModality.HandTracking;
+            activeModalityPhase = InteractionModality.Controllers;
             StartRound(0);
         }
         else
