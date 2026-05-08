@@ -10,17 +10,17 @@ Riley Bowling
 
 
 ## Links to Checkpoint 1 Videos
-Current State of Project - https://youtu.be/4tA_kWONb9U
-Code Walkthrough - https://youtu.be/YUmo7FESMLw
+Current State of Project - https://youtu.be/4tA_kWONb9U \
+Code Walkthrough - https://youtu.be/YUmo7FESMLw 
 
 ## Links to Checkpoint 2 Videos
-Code Walkthrough - https://youtu.be/29ygqZ-pGrE
-Current State - https://youtu.be/663-TvwLvdQ
+Code Walkthrough - https://youtu.be/29ygqZ-pGrE \
+Current State - https://youtu.be/663-TvwLvdQ 
 
 ## Links to Final Videos
-Code Walkthrough - https://youtu.be/Q7SzQr270cc
-Project Walkthrough - https://youtu.be/7oGqZVZM3Gk
-Project Presentation - https://youtu.be/Ry91b-6hEbs
+Code Walkthrough - https://youtu.be/Q7SzQr270cc \
+Project Walkthrough - https://youtu.be/7oGqZVZM3Gk \
+Project Presentation - https://youtu.be/Ry91b-6hEbs 
 
 ## Project Paper
 
